@@ -55,12 +55,14 @@ export function Header() {
       } `}
     >
       <div
-        className={`${
-          pathname.includes("/portal-professor")
-            ? "text-[#1D3E62]"
-            : "text-zinc-800"
-        } font-medium text-lg tracking-[1px] gap-3 flex items-center font-robotoSlab`}
-      >
+  className={`${
+    pathname.includes("/portal-professor")
+      ? "text-[#1D3E62]"
+      : pathname.includes("/portal-aluno")
+      ? "text-[#0076A3]" 
+      : "text-zinc-800"
+  } font-medium text-lg tracking-[1px] gap-3 flex items-center font-robotoSlab`}
+         >    
         <SidebarTrigger />
         <div
           className={`${
@@ -75,13 +77,15 @@ export function Header() {
         <DropdownMenu>
           {/* Botão de notificação */}
 
-          {pathname.includes("/portal-professor") ? (
+         {pathname.includes("/portal-professor") || pathname.includes("/portal-aluno") ? (
             <button className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded-full font-robotoSlab">
               <Bell
                 className={`${
                   pathname.includes("/portal-professor")
-                    ? "text-[#1D3E62]"
-                    : "text-zinc-800"
+                   ? "text-[#1D3E62]"
+                   : pathname.includes("/portal-aluno")
+                   ? "text-[#0076A3]"  
+                   : "text-zinc-800"
                 } w-6 h-6`}
               />
             </button>
@@ -93,6 +97,8 @@ export function Header() {
                 className={`${
                   pathname.includes("/portal-professor")
                     ? "text-[#1D3E62]"
+                    : pathname.includes("/portal-aluno")
+                    ? "text-[#0076A3]"
                     : "text-zinc-800"
                 } w-6 h-6`}
               />
@@ -100,6 +106,8 @@ export function Header() {
                 className={`${
                   pathname.includes("/portal-professor")
                     ? "text-[#1D3E62]"
+                    : pathname.includes("/portal-aluno")
+                    ? "text-[#0076A3]"
                     : "text-zinc-800"
                 } font-medium`}
               >
